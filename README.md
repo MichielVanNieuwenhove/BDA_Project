@@ -21,3 +21,6 @@ The working of the files in this project are explained below:
 * **piece:** A class storing the blocks a certain piece has.
 * **torrent_file:** For storing information about a file.
 * **tracker**: This handles the tracker logic, like in actual BitTorrent.
+
+
+This project is run with Python 3.9, requirements can be found in *requirements.txt*.
