@@ -10,15 +10,21 @@ import global_vars
 
 ########################## Global Vars ##########################
 # Settings
-PEER_AMOUNT = 4
+PEER_AMOUNT = 3
 TRACKER_AMOUNT = 1
-FILE_AMOUNT = 1
-FILE_SIZE_RANGE = (10, 30)
-PIECE_SIZES = (4, 8)
-RUN_TIME = 20
+FILE_AMOUNT = 3
+FILE_SIZE_RANGE = (12, 24)
+PIECE_SIZES = (4,)
+BLOCK_SIZE = 1
+RUN_TIME = 100
 REANOUNCE_TIME = 2
 PEER_TIMEOUT = 3
 PEER_REQUEST_CHANCE = 0.5
+RANDOM_PIECES = 1
+ENDGAME_PIECES = 1
+AMOUNT_UNCHOKED_PEERS = 1 # Without optimistic unchoked one
+OPTIMISTIC_UNCHOKE_TIME = 2
+SEED = 42
 
 # Other
 run_to_completion = False
@@ -27,9 +33,16 @@ run_to_completion = False
 ########################## Functions ##########################
 ########################## Setup ##########################
 def setup():
+    random.seed(SEED)
+
     peers = {}  # key: address, val: peer object
     trackers = {}  # key: address, val: tracker object
     torrent_files = []
+    global_vars.block_size = BLOCK_SIZE
+    global_vars.random_pieces = RANDOM_PIECES
+    global_vars.endgame_pieces = ENDGAME_PIECES
+    global_vars.amount_unchoked_peers = AMOUNT_UNCHOKED_PEERS
+    global_vars.optimistic_unchoke_time = OPTIMISTIC_UNCHOKE_TIME
 
     # Static vars
     Peer.reannounce_time = REANOUNCE_TIME
