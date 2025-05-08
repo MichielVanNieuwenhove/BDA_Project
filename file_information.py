@@ -1,5 +1,6 @@
 from piece import Piece
 import global_vars
+
 import random
 
 class FileInformation:

@@ -1,8 +1,9 @@
-import global_vars
-from file_information import FileInformation
 import random
 from enum import Enum
 import numpy as np
+
+import global_vars
+from file_information import FileInformation
 from choke_information import ChokeInformation
 
 
